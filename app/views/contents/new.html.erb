@@ -1,234 +1,126 @@
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
-<style>
-#wrapper {
-  padding-left: 250px;
-  transition: all 0.4s ease 0s;
-}
-
-#sidebar-wrapper {
-  margin-left: -250px;
-  left: 250px;
-  width: 250px;
-  background: #000;
-  position: fixed;
-  height: 100%;
-  overflow-y: auto;
-  z-index: 1000;
-  transition: all 0.4s ease 0s;
-}
-
-#wrapper.active {
-  padding-left: 0;
-}
-
-#wrapper.active #sidebar-wrapper {
-  left: 0;
-}
-
-#page-content-wrapper {
-  width: 100%;
-}
-
-
-.sidebar-nav {
-  position: absolute;
-  top: 0;
-  width: 250px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.sidebar-nav li {
-  line-height: 40px;
-  text-indent: 20px;
-}
-
-.sidebar-nav li a {
-  color: #999999;
-  display: block;
-  text-decoration: none;
-  padding-left: 60px;
-}
-
-.sidebar-nav li a span:before {
-  position: absolute;
-  left: 0;
-  color: #41484c;
-  text-align: center;
-  width: 20px;
-  line-height: 18px;
-}
-
-.sidebar-nav li a:hover,
-.sidebar-nav li.active {
-  color: #fff;
-  background: rgba(255,255,255,0.2);
-  text-decoration: none;
-}
-
-.sidebar-nav li a:active,
-.sidebar-nav li a:focus {
-  text-decoration: none;
-}
-
-.sidebar-nav > .sidebar-brand {
-  height: 65px;
-  line-height: 60px;
-  font-size: 18px;
-}
-
-.sidebar-nav > .sidebar-brand a {
-  color: #999999;
-}
-
-.sidebar-nav > .sidebar-brand a:hover {
-  color: #fff;
-  background: none;
-}
-
-.content-header {
-  height: 65px;
-  line-height: 65px;
-}
-
-.content-header h1 {
-  margin: 0;
-  margin-left: 20px;
-  line-height: 65px;
-  display: inline-block;
-}
-
-#menu-toggle {
-    text-decoration: none;
-}
-
-.btn-menu {
-  color: #000;
-} 
-
-.inset {
-  padding: 20px;
-}
-
-@media (max-width:767px) {
-
-#wrapper {
-  padding-left: 0;
-}
-
-#sidebar-wrapper {
-  left: 0;
-}
-
-#wrapper.active {
-  position: relative;
-  left: 250px;
-}
-
-#wrapper.active #sidebar-wrapper {
-  left: 250px;
-  width: 250px;
-  transition: all 0.4s ease 0s;
-}
-
-#menu-toggle {
-  display: inline-block;
-}
-
-.inset {
-  padding: 15px;
-}
-
-}
-
-pre{
-    font-size:14px;
-    font-style:normal;
-    background-color:black;
-    color:white
-  }
-
-b{
-  font-size:17px
-  }
-
- 
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
+ <!-- <link href="/stylesheets/api.css" rel="stylesheet"/> -->
 
 </head>
 <body>
+  <%= stylesheet_link_tag "application", media: "all" %>
   <div id="wrapper">
-        <!-- Sidebar -->
+    <!-- Sidebar -->
     <div id="sidebar-wrapper">
       <nav id="spy">
         <ul class="sidebar-nav nav">
           <li>
-              <%= image_tag("qwinix.png", :style => "width: 250px;height:205px;padding-left: 0px;margin-left: -20px;") %>
+            <%= image_tag("logo.png", :style => "width: 215px; margin-top: 20px;margin-bottom: 20px;") %>
           </li>
           <li class="sidebar-brand active">
-            <a href="#home"><span class="fa fa-home solo"><h4>Home</h4></span></a>
+            <a href="#home"><span class="fa fa-home solo"><b>Home</b></span></a>
           </li>
-          <li>
-            <a href="#signin" data-scroll="">
-              <span class="fa fa-anchor solo"><h4>Sign In</h4></span>
-            </a>
-          </li>
-          <li>
-            <a href="#signup" data-scroll="">
-              <span class="fa fa-anchor solo"><h4>Sign Up</h4></span>
-            </a>
-          </li>
-          <li>
-            <a href="#forgotpassword" data-scroll="">
-              <span class="fa fa-anchor solo"><h4>Forgot Password</h4></span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
+
+          <li class="dropdown drop-down">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><b>Account API</b>
+              <span class="caret"></span></a>
+              <ul class="dropdown-menu" style="margin-left: 1px; padding: 15px 21px;">
+                <li ><a href="#signin" data-scroll="">
+                <span class="fa fa-anchor solo">Sign In</span></a></li>
+                  <li> <a href="#signup" data-scroll="">
+                    <span class="fa fa-anchor solo">Sign Up</span>
+                  </a></li>
+                  <li>  <a href="#forgotpassword" data-scroll="">
+                    <span class="fa fa-anchor solo">Forgot Password</span>
+                  </a></li>
+                </ul>
+              </li>
+
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><b>Profile API</b>
+                  <span class="caret"></span></a>
+                  <ul class="dropdown-menu" style="margin-left: 1px; padding: 17px 30px;">
+                        <li style="margin-left: -21px;"> 
+                    
+                      <a href="#userlist" data-scroll="">
+                        <span class="fa fa-anchor solo">User List</span></a>
+                      </li>
+                      <li style="margin-left: -21px;">
+                        <a href="#profile" data-scroll="">
+                          <span class="fa fa-anchor solo">View others Profile</span></a>
+                        </li>
+                        <li style="margin-left: -21px;"> 
+                         <a href="#myprofile" data-scroll="">
+                          <span class="fa fa-anchor solo">View owner Profile</span></a>
+                        </li>
+                        <li style="margin-left: -21px;">
+                          <a href="#myprofileupdate" data-scroll="">
+                            <span class="fa fa-anchor solo">Update Profile</span>
+                          </a>
+                        </li>
+                        <li style="margin-left: -21px;">
+                          <a href="#passwordchange" data-scroll="">
+                            <span class="fa fa-anchor solo">Change Password</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <li class="dropdown">
+                      <a class="dropdown-toggle" data-toggle="dropdown" href="#"><b>Feed API</b>
+                        <span class="caret"></span></a>
+                        <ul class="dropdown-menu" style="margin-left: 1px; padding: 15px 64px;">
+                          <li style="    margin-left: -44px">
+                            <a href="#feedlist" data-scroll="">
+                              <span class="fa fa-anchor solo">Feed List</span>
+                            </a>
+                          </li>
+                          <li  style="    margin-left: -44px">
+                            <a href="#createfeed" data-scroll="">
+                              <span class="fa fa-anchor solo">Create Feed</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
 
 
-    <!-- Page content -->
-    <div id="page-content-wrapper">
-      <div class="content-header">
-        <h1 id="home">
-          <a id="menu-toggle" href="#" class="glyphicon glyphicon-align-justify btn-menu toggle">
-            <i class="fa fa-bars"></i>
-          </a>
-          Konnexe
-          </h1>
-      </div>
+                <!-- Page content -->
+                <div id="page-content-wrapper">
+                  <div class="content-header">
+                    <h1 id="home">
+                      <a id="menu-toggle" href="#" class="glyphicon glyphicon-align-justify btn-menu toggle">
+                        <i class="fa fa-bars"></i>
+                      </a>
+                      Konnexe
+                    </h1>
+                  </div>
 
-      <div class="page-content inset" data-spy="scroll" data-target="#spy">
-        <div class="row">
-          <div class="jumbotron text-center">
-            <h1 style="color:red">API Documentation</h1>
-          </div>
-        </div>
-        
-        <div class="row">
-          <div class="col-md-6 well">
-            <legend id="signin"><h1 style="color:green">Sign In</h1></legend>
-            <b>Details</b></br>
-            <b>i. Method:</b></br> POST</br></br>
-            <b>ii. URL:</b></br> http://localhost:3000/api/v1/accounts/auth/sign_in.json</br></br>
-            <b>iii. Headers:</b></br>Content-type: application/json</br>
-          </div>
-          <div class="col-sm-6 well">
-            <b>Request Body: </b>
-            </br>
-            <pre>
+                  <div class="page-content inset" data-spy="scroll" data-target="#spy">
+                    <div class="row">
+                      <div class="jumbotron text-center">
+                        <h1 style="color:red">API Documentation</h1>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6">
+                        <legend id="signin"><h1 style="color:green">Sign In</h1></legend>
+                        <b>Details</b></br>
+                        <b>[1] Method:</b></br> POST</br></br>
+                        <b>[2] Headers:</b></br>Content-type: application/json</br></br>
+                        <b>[3] URL:</b></br> http://localhost:3000/api/v1/accounts/auth/sign_in.json
+                      </div>
+                      <div class="col-sm-6">
+                        <b>Request Body: </b>
+                      </br>
+                      <pre>
 {
   "email":"ksatish@qwinix.io", 
   "password":"Password123"
-}
-            </pre>
-            <b> Response Body:</b>
-            <pre>
+}</pre>
+                    <b> Response Body:</b>
+                    <pre>
 {
   "user": 
   {
@@ -251,24 +143,42 @@ b{
   },
   "success": true,
   "status": 200
-}
-            </pre>
-          </div>
-          <div class="col-md-6 well">
-            <legend id="signup"><h1 style="color:green">Sign Up</h1></legend>
-            <b>Details</b></br>
-            <b>i. Method:</b></br> POST</br></br>
-            <b>ii. URL:</b></br>http://localhost:3000/api/v1/accounts/auth.json</br></br>
-            <b>iii. Headers:</b></br> Content-type: application/json</br>
-          </div>
-          <div class="col-md-6 well">
-            <p><b>Request Body: </b>
-            </br>
-            <pre> 
+} </pre>
+              </div>
+              <div class="col-md-6">
+                <legend id="signup"><h1 style="color:green">Sign Up</h1></legend>
+                <b>Details</b></br>
+                <b>[1] Method:</b></br> POST</br></br>
+                <b>[2] Headers:</b></br> Content-type: application/json</br></br>
+                <b>[3] URL:</b></br>http://localhost:3000/api/v1/accounts/auth.json</br></br>
+              </div>
+              <div class="col-md-6 well">
+                <p><b>Request Body: </b>
+                </br>
+                <pre> 
 {
   "user": 
-    {
-      "name":"K Satish", 
+  {
+    "name":"K Satish", 
+    "email":"ksatish@qwinix.io", 
+    "designation":"Developer", 
+    "organization_name":"Qwinix", 
+    "contact_number":"(123) 456-7895", 
+    "city":"Mysore", 
+    "state":"Karnataka", 
+    "industry_domain":"Software", 
+    "organization_value":"10000 - 20000", 
+    "password":"Password123"
+  }
+} </p></pre>
+
+          <p><b>Response Body: </b>
+            <pre>
+{
+  "user": 
+   {
+      "id": 4,
+      "name":"K Satish",
       "email":"ksatish@qwinix.io", 
       "designation":"Developer", 
       "organization_name":"Qwinix", 
@@ -276,17 +186,151 @@ b{
       "city":"Mysore", 
       "state":"Karnataka", 
       "industry_domain":"Software", 
-      "organization_value":"10000 - 20000", 
-      "password":"Password123"
-    }
-}
-            </p>
-            </pre>
-                        
-            <p><b>Response Body: </b>
-            <pre>
+      "organization_value":"10000 - 20000",
+      "uid": "ksatish@qwinix.io",
+      "image_url": null
+    },
+    "status": 201,
+    "success": true,
+    "message": "User created Successfully!"
+}</p></pre>
+      </div>
+
+      <div class="col-md-6">
+        <legend id="forgotpassword"><h1 style="color:green">Forgot Password</h1></legend>
+        <b>Details</b></br>
+        <b>[1] Method:</b></br> POST</br></br>
+        <b>[2] Headers:</b></br> Content-type: application/json</br></br>
+        <b>[3] URL:</b></br>http://localhost:3000/api/v1/accounts/auth/password.json</br></br>
+        <b>[4]</b><b style="font-size:16px">After user clicks the link in the e-mail,</b></br></br>
+        <b>[5]</b><b style="font-size:16px"> He/she is taken to the page, where he enters password and password_confrimation and clicks update.</b></br></br>
+        <b>[6] Method:</b></br> PUT</br></br>
+        <b>[7] Headers:</b></br> Pass the following in the headers along with Request:</p>
+        <p style="font-size:15px">
+          <ul>
+            <li> Content-Type</li>
+            <li> Uid</li>
+            <li> Client</li>
+            <li> Access-Token</li></ul>
+            <b>[8] URL:</b></br> http://localhost:3000/api/v1/accounts/auth/password.json</br></br>
+          </div>
+          <div class="col-sm-6 well">
+            <b>Request Body: </b>
+          </br>
+          <pre>
 {
-  "user": 
+  "email":"ksatish@qwinix.io",
+  "redirect_url":"http://localhost:3000/api/v1/accounts/auth/password/edit.json"
+}</pre>
+        <b> Rsponse Body:</b>
+        <pre>
+{
+  "data": 
+  {
+    "id": 4,
+    "provider": "email",
+    "uid": "ksatish@qwinix.io",
+    "name": "K Satish",
+    "email": "ksatish@qwinix.io",
+    "designation": "Developer",
+    "organization_name":"Qwinix", 
+    "contact_number":"(123) 456-7895", 
+    "city":"Mysore", 
+    "state":"Karnataka", 
+    "industry_domain":"Software", 
+    "organization_value":"10000 - 20000",
+    "password": null,
+    "created_at": "2016-12-13T06:28:33.787Z",
+    "updated_at": "2016-12-15T04:01:42.670Z",
+    "image_url": null
+  },
+  "message": "An email has been sent to 't@t.com' containing instructions for resetting your password.",
+  "success": true,
+  "status": 200
+}</pre>
+      <b> Request Body:</b>
+      <pre>
+
+{
+  "password":"Qwinix123",
+  "password_confirmation":"Qwinix123"
+} </pre>
+    <b> Response Body:</b>
+    <pre>
+{
+  "data":
+    {
+      "id": 4,
+      "provider": "email",  
+      "uid": "ksatish@qwinix.io",  
+      "name": "K Satish",   
+      "email": "ksatish@qwinix.io",   
+      "designation": "Developer",   
+      "organization_name": "Qwinix",   
+      "contact_number": "(123) 456-7895",   
+      "city": "Mysore",   
+      "state": "Karnataka",   
+      "industry_domain": "Software",   
+      "organization_value": "10000 - 20000",   
+      "password": "Qwinix123",   
+      "created_at": "2016-12-07T11:31:20.831Z",
+      "updated_at": "2016-12-07T11:31:21.041Z",   
+      "image_url": nil
+    },
+    "message": "Your password has been successfully updated.", 
+    "success": true, 
+    "status": 200
+}</pre>
+</div> 
+<div class="col-md-6">
+  <legend id="userlist"><h1 style="color:green">User List</h1></legend>
+  <b>Details</b></br>
+  <b>[1] Method:</b></br> GET</br></br>
+  <b>[2] Headers: </b></br> Pass the following in the headers along with Request:</p>
+  <p style="font-size:15px">
+    <ul>
+      <li> Content-Type</li>
+      <li> Uid</li>
+      <li> Client</li>
+      <li> Access-Token</li></ul>
+      <b>[3] URL:</b></br>http://localhost:3000/api/v1/users/profiles.json</br></br>
+    </div>
+    <div class="col-md-6 well">                        
+      <p><b>Response Body: </b>
+        <pre>
+{
+  "success": true,
+  "status": 200,
+  "user":
+   [
+    {
+      "id": 2,
+      "name":"S Sathish",
+      "email":"sathish@ymail.com", 
+      "designation":"Developer", 
+      "organization_name":"V2Soft", 
+      "contact_number":"(123) 656-7875", 
+      "city":"Bangalore", 
+      "state":"Karnataka", 
+      "industry_domain":"Software", 
+      "organization_value":"10000 - 20000",
+      "uid": "sathish@yamil.com",
+      "image_url": null
+    },
+    {
+      "id": 3,
+      "name": "Suhas",
+      "email": "suhas@gmail.com",
+      "designation": "HR Consultant",
+      "organization_name": "Lenovo",
+      "contact_number": "8722289920",
+      "city": "Mysore",
+      "state": "Karnataka",
+      "industry_domain": "Software",
+      "organization_value": "10000 - 20000",
+      "uid": "suhas@gmail.com",
+      "image_url": null
+    },
     {
       "id": 4,
       "name":"K Satish",
@@ -298,107 +342,333 @@ b{
       "state":"Karnataka", 
       "industry_domain":"Software", 
       "organization_value":"10000 - 20000",
-      "uid": "ksatish@qwinix.io"
+      "uid": "ksatish@qwinix.io",
+      "image_url": null
+    }
+  ]
+}    </p></pre>
+</div> 
+<div class="col-md-6">
+  <legend id="profile"><h1 style="color:green">View others Profile</h1></legend>
+  <b>Details</b></br>
+  <b>[1] Method:</b></br>GET</br></br>
+  <b>[2] Headers:</b></br> Pass the following in the headers along with Request:</p>
+  <p style="font-size:15px">
+    <ul>
+      <li> Content-Type</li>
+      <li> Uid</li>
+      <li> Client</li>
+      <li> Access-Token</li></ul>
+      <b>[3] URL:</b></br>http://localhost:3000/api/v1/users/profiles/:user_id</br></br>
+    </div>
+    <div class="col-sm-6 well">
+      <b> Response Body:</b>
+      <pre>
+{
+  "user":     
+    {
+      "id": 3,
+      "name": "Suhas",
+      "email": "suhas@gmail.com",
+      "designation": "HR Consultant",
+      "organization_name": "Lenovo",
+      "contact_number": "8722289920",
+      "city": "Mysore",
+      "state": "Karnataka",
+      "industry_domain": "Software",
+      "organization_value": "10000 - 20000",
+      "uid": "suhas@gmail.com",
+      "image_url": null
     },
-    "status": 201,
-    "success": true,
-    "message": "User created Successfully!"
-}.
-            </p></pre>
-          </div>
+    "status": 200,
+    "success": true
+}
+  </pre>
+</div>   
+<div class="col-md-6">
+  <legend id="myprofile"><h1 style="color:green">View owner Profile</h1></legend>
+  <b>Details</b></br>
+  <b>[1] Method:</b></br>GET</br></br>
+  <b>[2] Headers:</b></br> Pass the following in the headers along with Request:</p>
+  <p style="font-size:15px">
+    <ul>
+      <li> Content-Type</li>
+      <li> Uid</li>
+      <li> Client</li>
+      <li> Access-Token</li></ul>
+      <b>[3] URL:</b></br>http://localhost:3000/api/v1/users/profiles/my_profile</br></br>
+    </div>
+    <div class="col-sm-6 well">
+      <b> Response Body:</b>
+      <pre>
+{
+  "user":     
+  {
+    "id": 4,
+    "name":"K Satish",
+    "email":"ksatish@qwinix.io", 
+    "designation":"Developer", 
+    "organization_name":"Qwinix", 
+    "contact_number":"(123) 456-7895", 
+    "city":"Mysore", 
+    "state":"Karnataka", 
+    "industry_domain":"Software", 
+    "organization_value":"10000 - 20000",
+    "uid": "ksatish@qwinix.io",
+    "image_url": null
+  },
+  "status": 200,
+  "success": true
+}</pre>
+</div>
+<div class="col-md-6">
+  <legend id="myprofileupdate"><h1 style="color:green">Update Profile</h1></legend>
+  <b>Details</b></br>
+  <b>[1] Method:</b></br>PUT</br></br>
+  <b>[2] Headers</b></br> Pass the following in the headers along with Request:</p>
+  <p style="font-size:15px">
+    <ul>
+      <li> Content-Type</li>
+      <li> Uid</li>
+      <li> Client</li>
+      <li> Access-Token</li></ul>
+      <b>[3] URL:</b></br>http://localhost:3000/api/v1/users/profiles</br></br>
+    </div>
+    <div class="col-sm-6 well">
+      <b>Request Body: </b>
+    </br>
+    <pre>
+{
+  "user":
+    {
+      "name": "Satish Kumar",
+      "designation": "Sofware-Developer",
+      "organization_name": "Qwinix",
+      "contact_number": "(123) 456-7853",
+      "industry_domain": "Software Engineer",
+      "organization_value": "15000 - 30000"
+    }
+}
+</pre>
 
-          <div class="col-md-6 well">
-            <legend id="forgotpassword"><h1 style="color:green">Forgot Password</h1></legend>
-            <b>Details</b></br>
-            <b>i. Method:</b></br> POST</br></br>
-            <b>ii. URL:</b></br>http://localhost:3000/api/v1/accounts/auth/password.json</br></br>
-            <b>iii. Headers:</b></br> Content-type: application/json</br></br>
-            <ul>
-            <li><p>After user clicks the link in the e-mail,</p></li>
-            <li><p> He/she is taken to the page, where he enters password and password_confrimation and clicks update.</p></li></ul>
-            <b>vi. Method:</b></br> PUT</br></br>
-            <b>vii. URL:</b></br> http://localhost:3000/api/v1/accounts/auth/password.json</br></br>
-            <b>viii.</b> Pass the following in the headers along with Request:</p>
-            <p style="font-size:15px">
-            <ul>
-            <li> Content-Type</li>
-            <li>  Uid</li>
-            <li> Client</li>
-            <li>access-token</li></ul>
-          </div>
-          <div class="col-sm-6 well">
-          <b>Request Body: </b>
-          </br>
-          <pre>
+<b> Response Body:</b>
+<pre>
 {
-  "email":"ksatish@qwinix.io",
-  "redirect_url":"http://localhost:3000/api/v1/accounts/auth/password/edit.json"
+  "user":     
+  {
+    "id": 4,
+    "name":"Satish Kumar",
+    "email":"ksatish@qwinix.io", 
+    "designation":"Sofware-Developer", 
+    "organization_name":"Qwinix", 
+    "contact_number":"(123) 456-7853", 
+    "city":"Mysore", 
+    "state":"Karnataka", 
+    "industry_domain":"Software Engineer", 
+    "organization_value":"15000 - 30000",
+    "uid": "ksatish@qwinix.io",
+    "image_url": null
+  },
+  "message": "Profile updated Successfully!",
+  "status": 200,
+  "success": true
 }
-          </pre>
-          <b> Request Body:</b>
-          <pre>
-     
+</pre>
+</div> 
+<div class="col-md-6">
+  <legend id="passwordchange"><h1 style="color:green">Change Password</h1></legend>
+  <b>Details</b></br>
+  <b>[1] Method:</b></br>PUT</br></br>
+  <b>[2] Headers:</b></br> Pass the following in the headers along with Request:</p>
+  <p style="font-size:15px">
+    <ul>
+      <li> Content-Type</li>
+      <li> Uid</li>
+      <li> Client</li>
+      <li> Access-Token</li></ul>
+      <b>[3] URL:</b></br>http://localhost:3000/api/v1/users/profiles/change_password</br></br>
+    </div>
+    <div class="col-sm-6 well">
+      <b>Request Body: </b>
+    </br>
+    <pre>
 {
-  "password":"Qwinix123",
-  "password_confirmation":"Qwinix123"
-}
+  "old_password":"Password123",
+  "new_password":"Qwinix123"
+}</pre>
 
-          </pre>
-          <b> Response Body:</b>
-          <pre>
-      
+  <b> Response Body:</b>
+  <pre>
 {
-  "data"=> 
-     {
-        "id"=>4,
-        "provider"=>"email",  
-        "uid"=>"ksatish@qwinix.io",  
-        "name"=>"K Satish",   
-        "email"=>"ksatish@qwinix.io",   
-        "designation"=>"Developer",   
-        "organization_name"=>"Qwinix",   
-        "contact_number"=>"(123) 456-7895",   
-        "city"=>"Mysore",   
-        "state"=>"Karnataka",   
-        "industry_domain"=>"Software",   
-        "organization_value"=>"10000 - 20000",   
-        "password"=>"Qwinix123",   
-        "created_at"=>"2016-12-07T11:31:20.831Z",
-        "updated_at"=>"2016-12-07T11:31:21.041Z",   
-        "image_url"=>nil
-      },
-     "message"=>"Your password has been successfully updated.", 
-     "success"=>true, 
-     "status"=>200
+  "user":     
+    {
+      "id": 4,
+      "name":"Satish Kumar",
+      "email":"ksatish@qwinix.io", 
+      "designation":"Sofware-Developer", 
+      "organization_name":"Qwinix", 
+      "contact_number":"(123) 456-7853", 
+      "city":"Mysore", 
+      "state":"Karnataka", 
+      "industry_domain":"Software Engineer", 
+      "organization_value":"15000 - 30000",
+      "uid": "ksatish@qwinix.io",
+      "image_url": null
+    },
+    "message": "Password updated Successfully!",
+    "status": 200,
+    "success": true
 }
-          </pre>
-        </div>          
-      </div>
-      <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+</pre>
+</div> 
+<div class="col-md-6">
+  <legend id="feedlist"><h1 style="color:green">Feed List</h1></legend>
+  <b>Details</b></br>
+  <b>[1] Method:</b></br>GET</br></br>
+  <b>[2] Headers:</b></br> Pass the following in the headers along with Request:</p>
+  <p style="font-size:15px">
+    <ul>
+      <li> Content-Type</li>
+      <li> Uid</li>
+      <li> Client</li>
+      <li> Access-Token</li></ul>
+      <b>[3] URL:</b></br>http://localhost:3000/api/v1/users/feeds</br></br>
+    </div>
+    <div class="col-sm-6 well">
+      <b> Response Body:</b>
+      <pre>
+{
+  "success": true,
+  "status": 200,
+  "feed": 
+  [
+  {
+    "id": 1,
+    "title": "test1",
+    "body": "description",
+    "image_url": null,
+    "user_detail": 
+    {
+      "id": 3,
+      "name": "Suhas",
+      "email": "suhas@gmail.com",
+      "designation": "HR Consultant",
+      "organization_name": "Lenovo",
+      "contact_number": "8722289920",
+      "city": "Mysore",
+      "state": "Karnataka",
+      "industry_domain": "Software",
+      "organization_value": "10000 - 20000",
+      "uid": "suhas@gmail.com",
+      "image_url": null
+    },
+ {
+    "id": 2,
+    "title": "test2",
+    "body": "description",
+    "image_url": null,
+    "user_detail": 
+    {
+      "id": 4,
+      "name":"K Satish",
+      "email":"ksatish@qwinix.io", 
+      "designation":"Developer", 
+      "organization_name":"Qwinix", 
+      "contact_number":"(123) 456-7895", 
+      "city":"Mysore", 
+      "state":"Karnataka", 
+      "industry_domain":"Software", 
+      "organization_value":"10000 - 20000",
+      "uid": "ksatish@qwinix.io",
+      "image_url": null
+    }
+  }
+  ]
+}
+</pre>
+</div>
+<div class="col-md-6">
+  <legend id="createfeed"><h1 style="color:green">Create Feed</h1></legend>
+  <b>Details</b></br>
+  <b>[1] Method:</b></br> POST</br></br>
+  <b>[2] Headers:</b></br> Pass the following in the headers along with Request:</p>
+  <p style="font-size:15px">
+    <ul>
+      <li> Content-Type</li>
+      <li> Uid</li>
+      <li> Client</li>
+      <li> Access-Token</li></ul>
+      <b>[3] URL:</b></br>http://localhost:3000/api/v1/users/feeds</br></br>
+    </div>
+    <div class="col-md-6 well">
+      <p><b>Request Body: </b>
+      </br>
+      <pre> 
+{
+  "feed": 
+    {
+      "title":"Test2", 
+      "body":"Description", 
+      "image_url":"dsfdsf908sd7f9ds7f89ds7f8ds"
+    }
+}</p></pre>
+
+<p><b>Response Body: </b>
+  <pre>
+{
+  "success": true,
+  "status": 200,
+  "message": "Feed created Successfully!",
+  "feed": 
+  {
+    "id": 2,
+    "title": "Test2",
+    "body": "Description",
+    "image_url": "dsfdsf908sd7f9ds7f89ds7f8ds",
+    "user_detail": 
+    {
+      "id": 4,
+      "name":"Satish Kumar",
+      "email":"ksatish@qwinix.io", 
+      "designation":"Sofware-Developer", 
+      "organization_name":"Qwinix", 
+      "contact_number":"(123) 456-7853", 
+      "city":"Mysore", 
+      "state":"Karnataka", 
+      "industry_domain":"Software Engineer", 
+      "organization_value":"15000 - 30000",
+      "uid": "ksatish@qwinix.io",
+      "image_url": null
+    }
+  }
+}         </p></pre>
+</div>
+</div>
+<script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script type="text/javascript">    
   /*Menu-toggle*/
-   $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("active");
-    });
+  $("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("active");
+  });
 
-    /*Scroll Spy*/
-    $('body').scrollspy({ target: '#spy', offset:80});
+  /*Scroll Spy*/
+  $('body').scrollspy({ target: '#spy', offset:80});
 
-    /*Smooth link animation*/
-    $('a[href*=#]:not([href=#])').click(function() {
-        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+  /*Smooth link animation*/
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
 
-            var target = $(this.hash);
-            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-            if (target.length) {
-                $('html,body').animate({
-                    scrollTop: target.offset().top
-                }, 1000);
-                return false;
-            }
-        }
-    });
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
 </script>
 </body>
