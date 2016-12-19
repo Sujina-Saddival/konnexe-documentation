@@ -23,14 +23,22 @@
             <a class="dropdown-toggle" data-toggle="dropdown" href="#"><b>Account API</b>
               <span class="caret"></span></a>
               <ul class="dropdown-menu" style="margin-left: 1px; padding: 15px 21px;">
-                <li ><a href="#signin" data-scroll="">
-                <span class="fa fa-anchor solo">Sign In</span></a></li>
-                  <li> <a href="#signup" data-scroll="">
-                    <span class="fa fa-anchor solo">Sign Up</span>
-                  </a></li>
-                  <li>  <a href="#forgotpassword" data-scroll="">
-                    <span class="fa fa-anchor solo">Forgot Password</span>
-                  </a></li>
+                <li>
+                  <a href="#signin" data-scroll="">
+                  <span class="fa fa-anchor solo">Sign In</span></a></li>
+                <li> 
+                  <a href="#signup" data-scroll="">
+                  <span class="fa fa-anchor solo">Sign Up</span>
+                </a></li>
+                <li> 
+                  <a href="#forgotpassword" data-scroll="">
+                  <span class="fa fa-anchor solo">Forgot Password</span>
+                </a></li>
+                <li>
+                  <a href="#signout" data-scroll="">
+                  <span class="fa fa-anchor solo">Sign Out</span>
+                </a>
+                </li>
                 </ul>
               </li>
 
@@ -76,6 +84,23 @@
                           <li  style="    margin-left: -44px">
                             <a href="#createfeed" data-scroll="">
                               <span class="fa fa-anchor solo">Create Feed</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <li class="dropdown">
+                      <a class="dropdown-toggle" data-toggle="dropdown" href="#"><b>Comment API</b>
+                        <span class="caret"></span></a>
+                        <ul class="dropdown-menu" style="margin-left: 1px; padding: 15px 64px;">
+                          <li style="    margin-left: -55px">
+                            <a href="#commentlist" data-scroll="">
+                              <span class="fa fa-anchor solo">Comment List</span>
+                            </a>
+                          </li>
+                          <li  style="    margin-left: -55px">
+                            <a href="#createcomment" data-scroll="">
+                              <span class="fa fa-anchor solo">Create Comment</span>
                             </a>
                           </li>
                         </ul>
@@ -282,6 +307,29 @@
     "status": 200
 }</pre>
 </div> 
+<div class="col-md-6">
+  <legend id="signout"><h1 style="color:green">Sign Out</h1></legend>
+  <b>Details</b></br>
+  <b>[1] Method:</b></br>DELETE</br></br>
+  <b>[2] Headers:</b></br> Pass the following in the headers along with Request:</p>
+  <p style="font-size:15px">
+    <ul>
+      <li> Content-Type</li>
+      <li> Uid</li>
+      <li> Client</li>
+      <li> Access-Token</li></ul>
+  <b>[3] URL:</b></br>http://localhost:3000/api/v1/accounts/auth/sign_out</br></br>
+</div>
+<div class="col-sm-6 well">
+      <b> Response Body:</b>
+      <pre>
+{
+  "success": true,
+  "status": 200
+}
+  </pre>
+</div>  
+</div> </br></br></br></br></br></br></br></br></br></br></br></br></br></br>
 <div class="col-md-6">
   <legend id="userlist"><h1 style="color:green">User List</h1></legend>
   <b>Details</b></br>
@@ -642,6 +690,151 @@
     }
   }
 }         </p></pre>
+</div>
+<div class="col-md-6">
+  <legend id="commentlist"><h1 style="color:green">Comment List</h1></legend>
+  <b>Details</b></br>
+  <b>[1] Method:</b></br>GET</br></br>
+  <b>[2] Headers:</b></br> Pass the following in the headers along with Request:</p>
+  <p style="font-size:15px">
+    <ul>
+      <li> Content-Type</li>
+      <li> Uid</li>
+      <li> Client</li>
+      <li> Access-Token</li></ul>
+      <b>[3] URL:</b></br>http://localhost:3000/api/v1/users/feeds/comments</br></br>
+    </div>
+    <div class="col-sm-6 well">
+      <b> Response Body:</b>
+      <pre>
+{
+  "success": true,
+  "status": 200,
+  "comment": [
+    {
+      "id": 1,
+      "description": "test1",
+      "feed_detail": 
+      {
+        "id": 2,
+        "title": "Test2",
+        "body": "Description",
+        "image_url": "dsfdsf908sd7f9ds7f89ds7f8d
+        "user_detail": 
+        {
+          "id": 4,
+          "name":"Satish Kumar",
+          "email":"ksatish@qwinix.io", 
+          "designation":"Sofware-Developer", 
+          "organization_name":"Qwinix", 
+          "contact_number":"(123) 456-7853", 
+          "city":"Mysore", 
+          "state":"Karnataka", 
+          "industry_domain":"Software Engineer", 
+          "organization_value":"15000 - 30000",
+          "uid": "ksatish@qwinix.io",
+          "image_url": null
+        },
+        "link": examplelink,
+        "source": null
+      }
+    },
+    {
+      "id": 2,
+      "description": "test2",
+      "feed_detail": {
+        "id": 2,
+        "title": "Test2",
+        "body": "Description",
+        "image_url": "dsfdsf908sd7f9ds7f89ds7f8ds",
+        "user_detail": {
+          "id": 1,
+          "name": "Jhon",
+          "email": "jhon@gmail.com",
+          "designation": "",
+          "organization_name": "Qwinix",
+          "contact_number": "1234567890",
+          "city": "Mysore",
+          "state": "Karnataka",
+          "industry_domain": "Software",
+          "organization_value": "10000 - 20000",
+          "uid": "sujina151@gmail.com",
+          "image_url": null
+        },
+        "link": null,
+        "source": null
+      }
+    }
+  ],
+  "total_count": 1,
+  "per_page": 10,
+  "current_page": 1,
+  "page_count": 1
+}
+</pre>
+</div>
+<div class="col-md-6">
+  <legend id="createcomment"><h1 style="color:green">Create Comment</h1></legend>
+  <b>Details</b></br>
+  <b>[1] Method:</b></br> POST</br></br>
+  <b>[2] Headers:</b></br> Pass the following in the headers along with Request:</p>
+  <p style="font-size:15px">
+    <ul>
+      <li> Content-Type</li>
+      <li> Uid</li>
+      <li> Client</li>
+      <li> Access-Token</li></ul>
+      <b>[3] URL:</b></br>http://localhost:3000/api/v1/users/feeds/comments</br></br>
+    </div>
+    <div class="col-md-6 well">
+      <p><b>Request Body: </b>
+      </br>
+      <pre> 
+{
+  "comment":
+  {
+    "description":"test1",
+    "feed_id":2,
+    "user_id":4
+  }
+}</p></pre>
+
+<p><b>Response Body: </b>
+  <pre>
+{
+  "success": true,
+  "status": 200,
+  "message": "Comment created Successfully!",
+  "comment":
+  {
+    "id": 1,
+    "description": "test1",
+    "feed_detail": 
+    {
+      "id": 2,
+      "title": "Test2",
+      "body": "Description",
+      "image_url": "dsfdsf908sd7f9ds7f89ds7f8ds",
+      "user_detail": 
+      {
+        "id": 4,
+        "name":"Satish Kumar",
+        "email":"ksatish@qwinix.io", 
+        "designation":"Sofware-Developer", 
+        "organization_name":"Qwinix", 
+        "contact_number":"(123) 456-7853", 
+        "city":"Mysore", 
+        "state":"Karnataka", 
+        "industry_domain":"Software Engineer", 
+        "organization_value":"15000 - 30000",
+        "uid": "ksatish@qwinix.io",
+        "image_url": null
+      },
+      "link": examplelink,
+      "source": null
+    }
+  }
+}       </p></pre>
 </div>
 </div>
 <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
